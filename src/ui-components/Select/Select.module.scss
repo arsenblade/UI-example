@@ -1,0 +1,126 @@
+$heightSelect: 40px;
+
+.selectContainer {
+  display: block;
+
+  .closeBackground {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .select {
+    position: relative;
+    width: 200px;
+    z-index: 2;
+
+    .inputSelect {
+      display: flex;
+      position: relative;
+      align-items: center;
+      background-color: rgb(244, 244, 244);
+      width: 100%;
+      height: $heightSelect;
+      border: 1px solid rgb(187, 187, 187);
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 6px 10px;
+    
+      .arrowSvg {
+        position: absolute;
+        display: block;
+        width: 24px;
+        height: 24px;
+        top: 50%;
+        right: 10px;
+        transform: translate(0, -50%);
+        stroke: black;
+        fill: none;
+      }
+
+      .arrowSvgOpen {
+        transform: translate(0, -50%) rotate(180deg);
+      }
+
+      .placeholder {
+        color:rgb(101, 101, 101);
+        font-size: 20px;
+        line-height: 26px;
+      }
+    
+      &:hover {
+        background-color: rgb(228, 228, 228);
+      }
+    }
+  
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: rgb(228, 228, 228);
+      border-radius: 5px;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+      padding-left: 5px;
+      right: 0;
+      left: 0;
+      top: calc($heightSelect + 4px);
+  
+      .dropdownList {
+        overflow-y: auto;
+        max-height: 102px;
+  
+        .dropdownItem {
+          font-size: 16px;
+          line-height: 22px;
+          padding: 6px 10px;
+          cursor: pointer;
+        }
+
+        .noActive {
+          &:hover {
+            animation: hover-item 0.4s forwards;
+            border-radius: 1px;
+          }
+        }
+  
+        .active {
+          background-color: rgb(97, 97, 97);
+          border-radius: 1px;
+
+          &:hover {
+            color: white;
+          }
+        }
+  
+        &::-webkit-scrollbar  {
+          background-color: rgb(219, 219, 219);
+          width: 6px;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+          background-color: gray;
+          width: 8px;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+      }
+    }
+  
+    .open {
+      display: block;
+    }
+  }
+}
+
+@keyframes hover-item {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgb(156, 156, 156);
+  }
+}

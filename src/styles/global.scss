@@ -1,0 +1,88 @@
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  height: 100vh;
+
+  >div {
+    height: 100vh;
+    background-color: rgba($color: rgb(20, 20, 20), $alpha: 1.0);
+  }
+}
+
+.app {
+  height: max-content;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.dropdownListAnimation-enter-active {
+  animation: show-dropdown-list .5s forwards;
+}
+
+.dropdownListAnimation-exit-active {
+  animation: exit-dropdown-list .5s forwards;
+}
+
+.boxAnim-enter-active {
+  animation: open-podder .5s forwards;
+}
+
+.boxAnim-exit-active {
+  animation: close-podder .5s forwards;
+}
+
+@keyframes open-podder {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    width: 100px;
+    height: 100px;
+    border-radius: 0;
+  }
+}
+
+@keyframes close-podder {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+}
+
+
+@keyframes show-dropdown-list {
+  0% {
+    height: 0; 
+  }
+  100% {
+    height: 102px;
+  }
+}
+
+@keyframes exit-dropdown-list {
+  0% {
+    height: 102px; 
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
+  }
+}

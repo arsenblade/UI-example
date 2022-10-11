@@ -1,24 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import {useState} from 'react'
+import Select from "./ui-components/Select/Select";
+import './styles/global.scss'
+import { IOption } from "./ui-components/Select/Select.interface";
+import CheckBox from './ui-components/CheckBox/CheckBox';
+
+const options: IOption[] = [
+  {
+    label: 'React',
+    value: '1'
+  },
+  {
+    label: 'Vue',
+    value: '2'
+  },
+  {
+    label: 'Angular',
+    value: '3'
+  },
+  {
+    label: 'Next',
+    value: '4'
+  },
+  {
+    label: 'Nest',
+    value: '5'
+  },
+]
 
 function App() {
+  const [value, setValue] = useState<IOption>()
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="container-select">
+        <Select customClassName='sel' options={options} onChange={setValue} value={value} placeholder='Фреймворки' isOpen={true}/>
+      </div>
+      <CheckBox id='1'/>
     </div>
   );
 }
